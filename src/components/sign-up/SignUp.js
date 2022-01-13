@@ -7,7 +7,7 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 import './SignUp.scss';
 
-class SignUp {
+class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
