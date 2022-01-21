@@ -24,10 +24,10 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label='Pay Now'
-      name='CRWN Clothing Ltd.'
+      name='REXX Clothing Ltd.'
       billingAddress
       shippingAddress
-      image='https://png.pngtree.com/template/20190717/ourmid/pngtree-vector-crown-isolated-on-black-background-image_229153.jpg'
+      image='https://thumbs.dreamstime.com/b/r-letter-golden-icon-middle-sparking-ring-logo-sign-empty-center-sparkling-dust-glitter-graphic-black-background-164517232.jpg'
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel='Pay Now'
