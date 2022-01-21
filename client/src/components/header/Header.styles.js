@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div`
     height: 60px;
     padding: 10px;
     margin-bottom: 20px;
+    font-size: 15px;
   }
 `;
 
@@ -38,4 +39,7 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  @media screen and (max-width: 800px) {
+    padding: 10px 12px;
+  }
 `;
