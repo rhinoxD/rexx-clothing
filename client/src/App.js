@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,16 +15,34 @@ import { GlobalStyle } from './global.styles';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/userActions';
 
+const LightTheme = {
+  pageBackground: 'white',
+  titleColor: '#141E61',
+  tagLineColor: 'black',
+};
+
+const DarkTheme = {
+  pageBackground: '#282c36',
+  titleColor: '#lightpink',
+  tagLineColor: 'lavender',
+};
+
+const themes = {
+  light: LightTheme,
+  dark: DarkTheme,
+};
+
 const App = () => {
+  const [theme, setTheme] = useState('light');
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUserSession());
   }, [dispatch]);
   return (
-    <div>
+    <ThemeProvider theme={themes[theme]}>
       <GlobalStyle />
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
@@ -37,7 +56,7 @@ const App = () => {
           }
         />
       </Switch>
-    </div>
+    </ThemeProvider>
   );
 };
 
