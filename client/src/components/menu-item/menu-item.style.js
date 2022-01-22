@@ -68,4 +68,5 @@ export const ContentTitle = styled.span`
 export const ContentSubtitle = styled.span`
   font-weight: lighter;
   font-size: 16px;
+  color: #4a4a4a;
 `;
