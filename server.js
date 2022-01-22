@@ -1,9 +1,54 @@
 const express = require('express');
+const router = express.Router();
+const nodemailer = require('nodemailer');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  auth: {
+    user: process.env.SMTP_EMAIL,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
+
+router.post('/contact', (req, res, next) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  const message = req.body.message;
+  const content = `name: ${name} \n email: ${email} \n message: ${message} `;
+
+  const mail = {
+    from: name,
+    to: 'coolshiv0721@gmail.com',
+    subject: 'New Message from Contact Form',
+    text: content,
+  };
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        status: 'fail',
+      });
+    } else {
+      res.json({
+        status: 'success',
+      });
+    }
+  });
+});
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
