@@ -28,11 +28,11 @@ router.post('/contact', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const message = req.body.message;
-  const content = `name: ${name} \n email: ${email} \n message: ${message} `;
+  const content = `name: ${name}\nemail: ${email}\nmessage: ${message} `;
 
   const mail = {
-    from: name,
-    to: 'coolshiv0721@gmail.com',
+    from: req.body.email,
+    to: 'no@reply.com',
     subject: 'New Message from Contact Form',
     text: content,
   };
@@ -48,6 +48,7 @@ router.post('/contact', (req, res, next) => {
       });
     }
   });
+  next();
 });
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -59,6 +60,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
+app.use('/', router);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));

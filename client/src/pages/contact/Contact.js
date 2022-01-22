@@ -8,17 +8,19 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios({
-      method: 'POST',
+      method: 'post',
       url: 'contact',
       data: { name, email, message },
     }).then((response) => {
       if (response.data.status === 'success') {
         alert('Message Sent.');
-        this.resetForm();
+        resetForm();
       } else if (response.data.status === 'fail') {
         alert('Message failed to send.');
       }
     });
+    alert('Message Sent.');
+    resetForm();
   };
   const resetForm = () => {
     setName('');
@@ -56,7 +58,7 @@ const ContactPage = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <button onClick={resetForm} type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-primary'>
           Submit
         </button>
       </form>
