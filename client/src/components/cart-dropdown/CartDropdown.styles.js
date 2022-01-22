@@ -13,11 +13,13 @@ export const CartDropdownContainer = styled.div`
   top: 90px;
   right: 40px;
   z-index: 5;
+  color: #000;
 `;
 
 export const EmptyMessageContainer = styled.span`
   font-size: 18px;
   margin: 50px auto;
+  color: #000;
 `;
 
 export const CartItemsContainer = styled.div`
