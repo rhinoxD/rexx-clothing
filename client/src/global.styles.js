@@ -17,4 +17,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.contact button, .form-group {
+  margin-top: 1rem;
+}
 `;

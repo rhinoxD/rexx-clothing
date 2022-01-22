@@ -32,7 +32,7 @@ router.post('/contact', (req, res, next) => {
 
   const mail = {
     from: req.body.email,
-    to: 'no@reply.com',
+    to: 'no-reply@rexx-clothing.com',
     subject: 'New Message from Contact Form',
     text: content,
   };
