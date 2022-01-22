@@ -55,10 +55,8 @@ const Header = ({ currentUser, hidden, signOutStart, theme, setTheme }) => {
       <LogoContainer to='/'>
         <Logo className='logo' />
       </LogoContainer>
-      <div className='mode'>
-        <Toggle onClick={changeTheme}>{icon}</Toggle>
-      </div>
       <OptionsContainer>
+        <Toggle onClick={changeTheme}>{icon}</Toggle>
         <OptionLink to='/shop'>SHOP</OptionLink>
         <OptionLink to='/contact'>CONTACT</OptionLink>
         {currentUser ? (
