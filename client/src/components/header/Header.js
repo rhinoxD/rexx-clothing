@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -36,16 +36,25 @@ const Toggle = styled.button`
 `;
 
 const Header = ({ currentUser, hidden, signOutStart, theme, setTheme }) => {
+  const shop = useRef(null);
+  const contact = useRef(null);
+  const link = useRef(null);
   function changeTheme() {
     if (theme === 'light') {
       document.body.style.background = '#282c36';
       document.body.style.color = '#fff';
       document.body.style.transition = 'all 0.5s ease';
+      shop.current.style.color = '#fff';
+      contact.current.style.color = '#fff';
+      link.current.style.color = '#fff';
       setTheme('dark');
     } else {
       document.body.style.background = '#fff';
       document.body.style.color = '#000';
       document.body.style.transition = 'all 0.5s ease';
+      shop.current.style.color = '#000';
+      contact.current.style.color = '#000';
+      link.current.style.color = '#000';
       setTheme('light');
     }
   }
@@ -57,14 +66,20 @@ const Header = ({ currentUser, hidden, signOutStart, theme, setTheme }) => {
       </LogoContainer>
       <OptionsContainer>
         <Toggle onClick={changeTheme}>{icon}</Toggle>
-        <OptionLink to='/shop'>SHOP</OptionLink>
-        <OptionLink to='/contact'>CONTACT</OptionLink>
+        <OptionLink ref={shop} to='/shop'>
+          SHOP
+        </OptionLink>
+        <OptionLink ref={contact} to='/contact'>
+          CONTACT
+        </OptionLink>
         {currentUser ? (
-          <OptionLink as='div' onClick={signOutStart}>
+          <OptionLink ref={link} as='div' onClick={signOutStart}>
             SIGN OUT
           </OptionLink>
         ) : (
-          <OptionLink to='/signin'>SIGN IN</OptionLink>
+          <OptionLink ref={link} to='/signin'>
+            SIGN IN
+          </OptionLink>
         )}
         <CartIcon />
       </OptionsContainer>
