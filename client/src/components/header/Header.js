@@ -33,6 +33,9 @@ const Toggle = styled.button`
   }
   transition: all 0.5s ease;
   margin-left: auto;
+  @media screen and (max-width: 800px) {
+    margin-right: 7px;
+  }
 `;
 
 const Header = ({ currentUser, hidden, signOutStart, theme, setTheme }) => {
