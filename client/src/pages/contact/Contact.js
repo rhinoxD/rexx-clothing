@@ -58,7 +58,11 @@ const ContactPage = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <button type='submit' className='btn btn-primary'>
+        <button
+          type='submit'
+          className='btn btn-primary'
+          disabled={!name || !email || !message}
+        >
           Submit
         </button>
       </form>
