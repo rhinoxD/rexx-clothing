@@ -41,7 +41,7 @@ export const OptionLink = styled(Link)`
   cursor: pointer;
   @media screen and (max-width: 800px) {
     margin: 0 7px;
-    font-size: 15px;
-    padding: 0;
+    font-size: 13.5px;
+    padding: 4px 0 0 0;
   }
 `;

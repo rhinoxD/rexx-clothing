@@ -22,10 +22,13 @@ import {
 
 const Toggle = styled.button`
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: ${(props) => props.theme.titleColor};
   color: ${(props) => props.theme.pageBackground};
   &:focus: {
@@ -61,7 +64,7 @@ const Header = ({ currentUser, hidden, signOutStart, theme, setTheme }) => {
       setTheme('light');
     }
   }
-  const icon = theme === 'light' ? <HiMoon size={30} /> : <CgSun size={30} />;
+  const icon = theme === 'light' ? <HiMoon size={25} /> : <CgSun size={25} />;
   return (
     <HeaderContainer>
       <LogoContainer to='/'>
