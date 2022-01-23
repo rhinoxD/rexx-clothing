@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CheckoutPageContainer = styled.div`
-  width: 55%;
+  width: 70%;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -41,6 +41,11 @@ export const TotalContainer = styled.div`
   margin-top: 30px;
   margin-left: auto;
   font-size: 36px;
+  @media (max-width: 800px) {
+    margin: 20px 20px 0 20px;
+    text-align: center;
+    font-size: 28px;
+  }
 `;
 
 export const WarningContainer = styled.div`
@@ -48,4 +53,8 @@ export const WarningContainer = styled.div`
   margin-top: 40px;
   font-size: 24px;
   color: red;
+  @media (max-width: 800px) {
+    margin-top: 15px;
+    font-size: 18px;
+  }
 `;
