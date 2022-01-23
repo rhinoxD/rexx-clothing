@@ -41,6 +41,7 @@ export const AddButton = styled(CustomButton)`
     opacity: 0.9;
     min-width: unset;
     padding: 0;
+    margin-top: 18rem;
   }
 `;
 
