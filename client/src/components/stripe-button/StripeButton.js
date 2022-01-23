@@ -22,18 +22,20 @@ const StripeCheckoutButton = ({ price }) => {
       });
   };
   return (
-    <StripeCheckout
-      label='Pay Now'
-      name='REXX Clothing Ltd.'
-      billingAddress
-      shippingAddress
-      image='https://thumbs.dreamstime.com/b/r-letter-golden-icon-middle-sparking-ring-logo-sign-empty-center-sparkling-dust-glitter-graphic-black-background-164517232.jpg'
-      description={`Your total is $${price}`}
-      amount={priceForStripe}
-      panelLabel='Pay Now'
-      token={onToken}
-      stripeKey={publishableKey}
-    />
+    <div center style={{ marginBottom: '20px' }}>
+      <StripeCheckout
+        label='Pay Now'
+        name='REXX Clothing Ltd.'
+        billingAddress
+        shippingAddress
+        image='https://thumbs.dreamstime.com/b/r-letter-golden-icon-middle-sparking-ring-logo-sign-empty-center-sparkling-dust-glitter-graphic-black-background-164517232.jpg'
+        description={`Your total is $${price}`}
+        amount={priceForStripe}
+        panelLabel='Pay Now'
+        token={onToken}
+        stripeKey={publishableKey}
+      />
+    </div>
   );
 };
 
