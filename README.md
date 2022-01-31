@@ -1,3 +1,3 @@
-# rexx-clothing
+# Rexx Clothing
 
 ![landing](landing.png)
