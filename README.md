@@ -1,3 +1,3 @@
 # rexx-clothing
 
-!['landing'](landing.png)
+![landing](landing.png)
